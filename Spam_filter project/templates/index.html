@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Message Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📩 AI Spam Filter</h1>
+        <form method="POST" action="/predict">
+            <textarea name="message" placeholder="Enter your message here..." required>{{ message if message else "" }}</textarea>
+            <button type="submit">Check</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <strong>Result:</strong> {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
